@@ -1,0 +1,83 @@
+#title {
+    text-align: center;
+    font-weight: Bold;
+    color: Blue;
+    text-shadow: 1px 1px #FFFF00;
+    font-size:50px;
+    background:White;
+
+}
+
+body {
+    background-color: White;
+    background-image: url('https://s1.1zoom.me/b2950/205/Golf_Lawn_512433_2560x1440.jpg');
+}
+
+#yellow {
+    color:yellow;
+}
+
+.button-image1 {
+    padding-top:200px;
+    text-align:center;
+    color:white;
+    width:15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-image2 {
+    padding-top:200px;
+    text-align:center;
+    color:white;
+    width:15%;
+
+}
+
+.figure-styling {
+    float:left;
+    padding:7px;
+    text-align:center;
+    color:white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.img-styling {
+    border:5px solid black;
+    border-radius: 8px;
+    width:350px;
+}
+
+.tableReskin {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: Bold;
+    font-size: 13px;
+    /* line-height: 16px; */
+    letter-spacing: 0.005em;
+    color: White;
+    border: 2px solid Black;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.stabletr {
+    background: #FAFAFA;
+    box-shadow: inset 0px -1px 0px #f3f3f3;
+    border-radius: 0px;
+}
+
+.rosterRow {
+    color: Gainsboro;
+    background-color: LightGray;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+}
+
+.gameday {
+    color:HotPink;
+}
