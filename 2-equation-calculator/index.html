@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    </head>
+
+    <body>
+
+        <hr>
+        <h1>Pythagorean Theorem Solver</h1>
+        <form>
+            <input type="text" placeholder="enter side a" size="50" id="side-a">
+        </form>
+        <form>
+            <br>
+
+            <input type="text" placeholder="enter side b" size="50" id="side-b">
+
+            <br><br>
+
+            <input type="checkbox"> I have read the <a href="tos.html">terms of service</a>
+
+            <br><br>
+
+            <input type="button" value="Solve!" onclick="pythagorean()">
+
+            <br><br><br>
+            
+            <h2 id="solution1"></h2>
+            <hr>
+            <!-- ------ END OF PYTHAGOREAN THING ------- -->
+
+
+
+            <h1>Area of Triangle</h1>
+
+            <form>
+                <input type="text" placeholder="enter base" size="50" id="base">
+            </form>
+            <form>
+                <br>
+    
+                <input type="text" placeholder="enter height" size="50" id="height">
+    
+                <br><br>
+    
+                <input type="checkbox"> I have read the <a href="tos.html">terms of service</a>
+    
+                <br><br>
+    
+                <input type="button" value="Solve!" onclick="areaOfTriangle()">
+    
+                <br><br><br>
+                
+                <h2 id="solution2"></h2>
+        </form>
+            <!-- END OF TRIANGLE AREA THING -->
+            <hr>
+
+            <h1>Area of Circle</h1>
+
+        <form>
+
+            <input type="text" placeholder="enter radius" size="50" id="radius">
+
+            <br><br>
+
+            <input type="checkbox"> I have read the <a href="tos.html">terms of service</a>
+
+            <br><br>
+
+            <input type="button" value="Solve!" onclick="areaOfCircle()">
+
+            <br>
+            
+            <h2 id="solution3"></h2>
+    </form>
+    </body>
+</html>

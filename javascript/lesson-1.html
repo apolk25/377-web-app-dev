@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello World</title>
+        <style>
+
+            input {
+                color:BlueViolet
+            }
+            
+            #greeting {
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                color:Purple;
+                size:25px;
+                text-shadow: 0 0 3px #FF0000;
+
+            }
+        </style>
+
+        <script>
+            
+            function helloWorld(){
+                var name = document.getElementById("name").value;
+                var hobby = document.getElementById("hobby").value;
+
+                var response = "Hello " + name + ", I like " + hobby + " too!";
+                
+
+                // Annoying to have lots of alerts
+                // alert(response);
+
+                // Better way is to update the DOM
+                document.getElementById("greeting").innerHTML    += "<br>" + response;
+                
+            }
+
+        </script>
+
+
+    </head>
+
+    <body>
+        This is my webpage. It is a great website.
+
+        <ul>
+            <li>Stuff</li>
+            <li>More Stuff</li>
+        </ul>
+        <hr>
+        <h1>My First Form</h1>
+        <form>
+            <input type="text" placeholder="Enter your name" size="50" id="name">
+        </form>
+        <form>
+            <br>
+
+            <input type="text" placeholder="Enter your favorite hobby" size="50" id="hobby">
+
+            <br><br>
+
+            <input type="checkbox"> I have read the <a href="tos.html">terms of service</a>
+
+            <br><br>
+
+            <input type="button" value="Submit" onclick="helloWorld()">
+
+            <br><br><br>
+            
+            <h2 id="greeting"></h2>
+        </form>
+    </body>
+</html>
