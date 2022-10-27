@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <title>Max Pop Remastered</title>
+</head>
+<body>
+
+    <svg width="1000" height="700" style="border:solid 2px black" id="canvas">
+            <text id="title" x="340" y="200">MAX-POP</text>
+            <rect id="startButton" width="100" height="50" x="425" y="250" fill="#ee6352" onclick="clearCanvas()"></rect>
+            <text id="startText" x="448" y="280" onclick="clearCanvas()">Start</text>
+
+            <symbol id="road">
+                <rect id="road" x="0" y="0" fill="gray" width="1000" height="700"></rect>
+                <rect id="yellowMarker1" x="470" y="0" width="15" height="700" fill="yellow"></rect>
+                <rect id="yellowMarker2" x="510" y="0" width="15" height="700" fill="yellow"></rect>
+                <rect id="whiteMarker1" x="0" y="0" width="15" height="700" fill="white"></rect>
+                <rect id="whiteMarker1" x="982" y="0" width="15" height="700" fill="white"></rect>
+
+            </symbol>
+
+            <symbol id="randomMaxes">
+                <image id="max0" href="max.png" height="100" width="75"></image>
+                <image id="max1" href="max.png" height="100" width="75"></image>
+                <image id="max2" href="max.png" height="100" width="75"></image>
+                <image id="max3" href="max.png" height="100" width="75"></image>
+                <image id="max4" href="max.png" height="100" width="75"></image>
+                <image id="max5" href="max.png" height="100" width="75"></image>
+
+            </symbol>
+
+            <use id="useRoad" x="0" y="0" href=""></use>
+            <use id="drawYMarker1" x="0" y="0" href=""></use>
+            <use id="drawYMarker2" x="0" y="0" href=""></use>
+            <use id="drawWMarker1" x="0" y="0" href=""></use>
+            <use id="drawWMarker2" x="0" y="0" href=""></use>
+
+            <use id="useMax0" x="0" y="0" href=""></use>
+            <use id="useMax1" x="0" y="0" href=""></use>
+            <use id="useMax2" x="0" y="0" href=""></use>
+            <use id="useMax3" x="0" y="0" href=""></use>
+            <use id="useMax4" x="0" y="0" href=""></use>
+            <use id="useMax5" x="0" y="0" href=""></use>
+
+
+            <use id="animateMax0">
+                <animate id="animateTagMax0" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"  fill="freeze"></animate>
+            </use>
+            <use id="animateMax1">
+                <animate id="animateTagMax1" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"   fill="freeze"></animate>
+            </use>
+            <use id="animateMax2">
+                <animate id="animateTagMax2" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"   fill="freeze"></animate>
+            </use>
+            <use id="animateMax3">
+                <animate id="animateTagMax3" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"  fill="freeze"></animate>
+            </use>
+            <use id="animateMax4">
+                <animate id="animateTagMax4" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"   fill="freeze"></animate>
+            </use>
+            <use id="animateMax5">
+                <animate id="animateTagMax5" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"  fill="freeze"></animate>
+            </use>
+
+    </svg>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Crappy Dice Game</title>
+        <script src="Crappy%20Dice%20Game_files/jquery.min.js"></script>
+        <script>
+            function randomDiceLeft() {
+                let useSvg = ""
+                let randDice = Math.floor(Math.random() * 6) + 1
+                let setRandDice = "#dice" + randDice
+                
+                console.log(setDice)
+                $(setDice).attr("href", setRandDice)
+            }
+
+            function randomDiceRight(){
+                let useSvg = ""
+                let randDice = Math.floor(Math.random() * 6) + 1
+                let setRandDice = "#dice" + randDice
+                
+                console.log(setDice)
+                $(setDice).attr("href", setRandDice)
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <h1>Crappy Craps Dice Game</h1>
+
+        <svg width="500" height="500" style="border:solid 2px">
+           
+
+            <symbol id="dice1">
+                <circle r="15" cx="125" cy="150" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice2">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice3">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="125" cy="150" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+            </symbol>
+        
+            <symbol id="dice4">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+                
+                <circle r="15" cx="55" cy="75"></circle>
+                <circle r="15" cx="195" cy="225"></circle>
+            </symbol>
+
+            <symbol id="dice5">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+                
+                <circle r="15" cx="125" cy="150" fill="black"></circle>
+
+
+                <circle r="15" cx="55" cy="75"></circle>
+                <circle r="15" cx="195" cy="225"></circle>
+            </symbol>
+
+            <symbol id="dice6">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+                
+                <circle r="15" cx="55" cy="75"></circle>
+                <circle r="15" cx="195" cy="225"></circle>
+
+                <circle r="15" cx="55" cy="150" fill="black"></circle>
+                <circle r="15" cx="195" cy="150" fill="black"></circle>
+
+            </symbol>
+
+            <rect width="200" height="200" x="25" y="50" fill="white" stroke="black"></rect>
+            
+            
+            <rect width="70" height="30" x="210" y="275" fill="black"></rect>
+            <rect width="20" height="20" x="235" y="280" fill="lime" onclick="randomDiceLeft(), randomDiceRight()"></rect>
+            <use href="#dice6" x="0" y="0"></use>
+            <use id="setDice" x="0" y="0" visibility="visible"></use>
+
+
+            <symbol id="dice1Right">
+                <circle r="15" cx="370" cy="150" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice2Right">
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice3Right">
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="370" cy="150" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+            </symbol>
+        
+            <symbol id="dice4Right">
+
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+                <circle r="15" cx="300" cy="75" fill="black"></circle>
+                <circle r="15" cx="440" cy="225" fill="black"></circle>
+
+            </symbol>
+
+            <symbol id="dice5Right">
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+                <circle r="15" cx="300" cy="75" fill="black"></circle>
+                <circle r="15" cx="440" cy="225" fill="black"></circle>
+                <circle r="15" cx="370" cy="150" fill="black"></circle>
+
+            </symbol>
+
+            <symbol id="dice6Right">
+
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+                <circle r="15" cx="300" cy="75" fill="black"></circle>
+                <circle r="15" cx="440" cy="225" fill="black"></circle>
+                <circle r="15" cx="300" cy="150" fill="black"></circle>
+                <circle r="15" cx="440" cy="150" fill="black"></circle>
+
+            </symbol>
+
+            <rect width="200" height="200" x="270" y="50" fill="white" stroke="black"></rect>
+            <use href="#dice6Right" x="0" y="0" visibility="visible"></use>
+
+        </svg>
+
+
+    
+</body></html>

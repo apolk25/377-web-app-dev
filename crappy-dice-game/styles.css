@@ -1,0 +1,29 @@
+#balance {
+    color: Black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#gamename {
+    text-align:Center;
+    animation: color-change 5s infinite;
+    text-shadow: 1px 1px black
+  }
+
+
+
+@keyframes color-change {
+  0% { color: Black; }
+  50% { color: White;}
+  100% { color: Black;}
+
+}
+
+body {
+    background-color: Gainsboro;
+}
+
+#currentbal{
+    color:MediumSpringGreen;
+    text-shadow: 1px 1px black;
+    font-size:30px
+}

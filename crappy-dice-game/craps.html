@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crappy Dice Game</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+
+
+            /*
+
+            7 or 11 = Win
+            2, 3, 12 = Lose
+            Anything else, go to step 2.
+
+            2). Remember the rolled #
+            3). Continue rolling until
+                rolled # = win
+                7 = lose
+
+            */
+            let point = 0;
+            let cash = 105
+            let minBet = 5;
+            let maxBet = cash;
+
+            function rollDi () {
+                gamble();
+                let total = randomDice("Left") + randomDice("Right");
+                $("#point").html("Point: " + point);
+                $("#total").html("Total: " + total);
+                $("#outcome").html("");
+
+                if(point == 0){
+                    if(total == 7 || total == 11){
+                        $("#outcome").html("Win");  
+                        gamble("win");              
+                    }else if(total == 2 || total == 3 || total == 12){
+                        $("#outcome").html("Lose");
+                        gamble("lose")
+                    }else{
+                        point = total;
+                    }
+
+                }else{
+                    if(point == total){
+                        $("#outcome").html("Win");
+                        point = 0;
+                        gamble("win")
+                    }else if(total == 7){
+                        $("#outcome").html("Lose");
+                        point = 0;
+                        gamble("lose")
+                    }
+                }
+
+                
+            }
+
+            function randomDice(side) {
+                let value = Math.floor(Math.random() * 6) + 1
+                let setRandDice = "#dice" + value + side;
+                
+                $("#setDice" + side).attr("href", setRandDice)
+                return value;
+            }
+
+            function gamble(outcome){
+                $("#betMsg").html("")
+                $("#balance").html("Balance: <span id='currentbal'> $" + cash + " </span>")
+                let bet = parseInt(document.getElementById("betForm").value)
+
+                if(cash >= bet){
+                    if(outcome == "lose" && bet >= minBet){
+                        cash -= bet
+                        $("#balance").html("Balance: <span id='currentbal'> $" + cash + " </span>")
+                        $("#betMsg").html("You lost $" + bet + "!")
+
+                    }else if(outcome == "win" && bet >= minBet && cash >= bet){
+                        cash += bet
+                        $("#balance").html("Balance: <span id='currentbal'> $" + cash + " </span>")
+                        $("#betMsg").html("You won $" + bet + "!")
+                
+
+                }
+            }
+                 if(cash <= bet){
+                    $("#betMsg").html("Not enough money!")
+                 }
+         }
+            
+
+
+        </script>
+    </head>
+
+    <body>
+
+        <h1 id="gamename">Craps Dice Game</h1>
+
+        <h2 id="balance"></h2>
+
+        <form id="bet" visbility="hidden">
+            <input type="text" placeholder="Enter your bet" size="50" id="betForm">
+        </form>
+
+        <br>
+        <button type="button" onclick="rollDi()" >
+            Bet!
+        </button>
+
+        <h1 id="outcome"></h1>
+        <h3 id="betMsg" style="color:red"></h3>
+        
+        <svg width="500" height="500" style="border:solid 2px">
+
+
+            <symbol id="dice1Left">
+                <circle r="15" cx="125" cy="150" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice2Left">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice3Left">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="125" cy="150" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+            </symbol>
+        
+            <symbol id="dice4Left">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+                
+                <circle r="15" cx="55" cy="75"></circle>
+                <circle r="15" cx="195" cy="225"></circle>
+            </symbol>
+
+            <symbol id="dice5Left">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+                
+                <circle r="15" cx="125" cy="150" fill="black"></circle>
+
+
+                <circle r="15" cx="55" cy="75"></circle>
+                <circle r="15" cx="195" cy="225"></circle>
+            </symbol>
+
+            <symbol id="dice6Left">
+                <circle r="15" cx="55" cy="225" fill="black"></circle>
+                <circle r="15" cx="195" cy="75" fill="black"></circle>
+                
+                <circle r="15" cx="55" cy="75"></circle>
+                <circle r="15" cx="195" cy="225"></circle>
+
+                <circle r="15" cx="55" cy="150" fill="black"></circle>
+                <circle r="15" cx="195" cy="150" fill="black"></circle>
+
+            </symbol>
+
+            <symbol id="dice1Right">
+                <circle r="15" cx="370" cy="150" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice2Right">
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+            </symbol>
+
+            <symbol id="dice3Right">
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="370" cy="150" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+            </symbol>
+        
+            <symbol id="dice4Right">
+
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+                <circle r="15" cx="300" cy="75" fill="black"></circle>
+                <circle r="15" cx="440" cy="225" fill="black"></circle>
+
+            </symbol>
+
+            <symbol id="dice5Right">
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+                <circle r="15" cx="300" cy="75" fill="black"></circle>
+                <circle r="15" cx="440" cy="225" fill="black"></circle>
+                <circle r="15" cx="370" cy="150" fill="black"></circle>
+
+            </symbol>
+
+            <symbol id="dice6Right">
+
+                <circle r="15" cx="300" cy="225" fill="black"></circle>
+                <circle r="15" cx="440" cy="75" fill="black"></circle>
+                <circle r="15" cx="300" cy="75" fill="black"></circle>
+                <circle r="15" cx="440" cy="225" fill="black"></circle>
+                <circle r="15" cx="300" cy="150" fill="black"></circle>
+                <circle r="15" cx="440" cy="150" fill="black"></circle>
+
+            </symbol>
+
+            
+            
+            
+            <rect width="200" height="200" x="25" y="50" fill="white" stroke="black" ></rect>
+            <use id="setDiceLeft" x="0" y="0" visibility="visible" href="#dice6Left"></use>
+
+            <rect width="200" height="200" x="270" y="50" fill="white" stroke="black" ></rect>
+            <use id="setDiceRight" x="0" y="0" visibility="visible" href="#dice6Right"></use>
+
+        </svg>
+        <h1 id="point"></h1>
+        <h1 id="total"></h1>
+
+    </body>
+</html>
