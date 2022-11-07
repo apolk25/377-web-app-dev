@@ -10,15 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-    <title>Max Pop Remastered</title>
+    <title>Max Aikins Crash Test</title>
 </head>
-<body>
+<body onkeypress = "moveCar(event)">
 
     <svg width="1000" height="700" style="border:solid 2px black" id="canvas">
-            <text id="title" x="340" y="200">MAX-POP</text>
+            <text id="title" x="100" y="200">Max Aikins Crash Test</text>
             <rect id="startButton" width="100" height="50" x="425" y="250" fill="#ee6352" onclick="clearCanvas()"></rect>
             <text id="startText" x="448" y="280" onclick="clearCanvas()">Start</text>
+            <rect id="infoBackground" width="200" height="75" x="380" y="325" fill="#ee6352"></rect>
+            <text id="instructions1" x="380" y="360" fill="black">An infinite game where you hit </text>
+            <text id="instructions2" x="380" y="380" fill="black">Maxwell Aikins with a car. </text>
 
             <symbol id="road">
                 <rect id="road" x="0" y="0" fill="gray" width="1000" height="700"></rect>
@@ -52,24 +54,22 @@
             <use id="useMax4" x="0" y="0" href=""></use>
             <use id="useMax5" x="0" y="0" href=""></use>
 
+            <text id="scoreText" x="50" y="30">Score: 0</text>
+            <use id="useScore"></use>
 
-            <use id="animateMax0">
-                <animate id="animateTagMax0" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"  fill="freeze"></animate>
+
+            <symbol id="vehicleSym">
+                <image id="vehicle" href="bike.png" x="500" y="600" width="100" height="100"></image>
+            </symbol>
+
+            <use id="maxRectUse">
+                <rect id="maxFollowingRect" width="40" height="100" fill="red" x="0" y="0"></rect>
             </use>
-            <use id="animateMax1">
-                <animate id="animateTagMax1" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"   fill="freeze"></animate>
-            </use>
-            <use id="animateMax2">
-                <animate id="animateTagMax2" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"   fill="freeze"></animate>
-            </use>
-            <use id="animateMax3">
-                <animate id="animateTagMax3" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"  fill="freeze"></animate>
-            </use>
-            <use id="animateMax4">
-                <animate id="animateTagMax4" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"   fill="freeze"></animate>
-            </use>
-            <use id="animateMax5">
-                <animate id="animateTagMax5" attributename="y" from="0" to="700" dur="7s" repeatCount="indefinite" restart="always"  fill="freeze"></animate>
+
+            <use id="spawnVehicle"></use>
+
+            <use id="bikeRectUse">
+                <rect id="bikeRect" width="40" height="100" fill="red" x="540" y="600"></rect>
             </use>
 
     </svg>

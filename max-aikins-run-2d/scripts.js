@@ -1,17 +1,11 @@
 
-
-let maxSpeed = 10;
-let maxDelay = 50;
-let maxCreateDelay = 400;
+let maxX = 0;
+let maxY = 0;
+let maxHits = 0;
+let moveSpeed = 20
 let maxArr = [
     "max0",
-    "max1",
-    "max2",
-    "max3",
-    "max4",
-    "max5",
 ];
-
 
 
 function clearCanvas(){
@@ -34,11 +28,14 @@ function initializeCanvas(){
     $("#drawYMarker2").attr("href", "#yellowMarker2")
     $("#drawWMarker1").attr("href", "#whiteMarker1")
     $("#drawWMarker2").attr("href", "#whiteMarker2")
-
-    $("#useMax6").attr("href", "#max6")
-
+    $("#spawnVehicle").attr("href", "#vehicleSym")
+    $("#useScore").attr("href", "#scoreText")
+    $("#bikeRectUse").attr("href", "#bikeRect")
     addRandomMax();
 }
+
+
+
 
 function addRandomMax(){
 
@@ -47,86 +44,89 @@ function addRandomMax(){
     // Gets a random Y value between 50 and 700
     
     for(var i = 0; i < maxArr.length; i++){
-        let randX = Math.floor(Math.random() * 1000);
-        let randY = Math.floor(Math.random() * 700) - 500;
+        $("max" + i).html("")
+        let randX = Math.floor(Math.random() * 50);
+        randX = randX * 20  
+        let randY = Math.floor(Math.random() * 35);
+        randY = randY * 20
 
-        // Makes sure max can't escape prison
-        if(randX < 0){
-            randX = randX + randX * 2
-        }else if(randX >= 930){
-            randX = randX - 150
+        if(randY > 600){
+            randY = 600
         }
 
-
-
+        if(randX > 900){
+            randX = 900
+        }
+        $("#maxFollowingRect").attr("x", randX + 20)
+        $("#maxFollowingRect").attr("y", randY)
+        console.log("Ivan Siew")
+        $("#maxRectUse").attr("href", "#maxFollowingRect")
         // console.log(randY)
         let cur = maxArr[i]
         $("#" + cur).attr("x", randX)
         $("#" + cur).attr("y", randY)
 
-        $("#animateTagMax" + i).attr("xlink:href", "#" + maxArr[i])
-        $("#animateTagMax" + i).attr("from", randY)
-        $("#animateTagMax" + i).attr("to", 700 - randY)
+        $("#useMax" + i).attr("href", "#" + maxArr[i])
 
-        $("#animateMax" + i).attr("href", "#" + cur)        // console.log(randX)
+        maxX = randX
+        maxY = randY
 
-    }
-    setInterval(changePosition, 20)
-}
 
-function changePosition(){
 
-    // to pop max idea:
-    // in first line for loop make everything visible
-    // after loop make the function to hover or whatever
-    for(var i = 0; i < maxArr.length; i++){
-        let cur = maxArr[i]
-        // $("#" + cur).attr("visibility", "visible")
-
-        let randX = Math.floor(Math.random() * 1000);
-        let randY = Math.floor(Math.random() * 700) - 500;
-
-        // Makes sure max can't escape prison
-        if(randX < 0){
-            randX = randX + randX * 2
-        }else if(randX >= 930){
-            randX = randX - 150
-        }
-        
-        // issue: maxes y doesnt update with animate tag
-        // somehow update the y value so i can make if statement
-        let maxY = $("#max" + i).attr("y");
-        if(maxY > 700){
-            console.log(maxY)
-            console.log("True")
-            $("#" + cur).attr("x", randX)
-            $("#" + cur).attr("y", randY)
-    
-            $("#animateTagMax" + i).attr("xlink:href", "#" + maxArr[i])
-            $("#animateTagMax" + i).attr("from", randY)
-            $("#animateTagMax" + i).attr("to", 700 - randY)
-        }
     }
 }
 
-function popMax(e){
-    
+
+function moveCar(event){
+    collisionHandlerv2();
+    let aikinsX = document.getElementById("vehicle")
+    let carX = parseFloat(aikinsX.getAttribute("x"));
+    let aikinsY = document.getElementById("vehicle")
+    let carY = parseFloat(aikinsY.getAttribute("y"));
+
+    if(event.which == 100){ // d key
+        $("#vehicle").attr("x", carX + moveSpeed)
+        $("#bikeRect").attr("x", carX + 40)
+
+    }
+
+    if(event.which == 97){ // a key
+        $("#vehicle").attr("x", carX - moveSpeed)
+        $("#bikeRect").attr("x", carX)
+
+    }
+
+    if(event.which == 119){ // w key
+        $("#vehicle").attr("y", carY - moveSpeed)
+        $("#bikeRect").attr("y", carY)
+
+    }
+
+    if(event.which == 115){ // s key
+        $("#vehicle").attr("y", carY + moveSpeed)
+        $("#bikeRect").attr("y", carY)
+
+    }
+
 }
-// function moveMax(){
-//     for(var i = 0; i < maxArr.length; i++){
-//         let cur = maxArr[i]
 
-//     }
-// }
+function collisionHandlerv2(){
 
+    let maxRectX = $("#maxFollowingRect").attr("x")
+    let maxRectY =  $("#maxFollowingRect").attr("y")
+    let vehicleRectX = $("#bikeRect").attr("x")
+    let vehicleRectY = $("#bikeRect").attr("y")
+    console.log("Vehicle X: " + vehicleRectX + " Vehicle Y: " + vehicleRectY)
 
-// function collisionHandler(e){}
-// for(var i = 0; i < maxArr.length; i++){
-//     let maxY = parseInt($("#" + maxArr[i]).attr("y"))
-//     console.log(maxY)
-//     while(maxY < 750){
-//         setTimeout(maxY += 5, 10)
-//         $("#" + maxArr[i]).attr("y", maxY)
-//         console.log(maxY)
-//     }
-// }
+    let maxRect = {x: maxRectX, y: maxRectY, width: 100, height: 75}
+    let vehicleRect = {x: vehicleRectX, y: vehicleRectY, width: 40, height: 100}
+
+    if(vehicleRectX > maxRectX - 100 && vehicleRectX < maxRectX + 100 && vehicleRectY > maxRectY - 75 && vehicleRectY < maxRectY + 75){
+            maxHits += 1
+            $("#scoreText").html("Score: " + maxHits)
+            addRandomMax();
+        }else{
+
+        }
+}
+
